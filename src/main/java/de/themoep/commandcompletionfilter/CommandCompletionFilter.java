@@ -104,16 +104,19 @@ public final class CommandCompletionFilter extends JavaPlugin implements Listene
         String pluginName = null;
         if (command == null && commandName.contains(":")) {
             String[] parts = commandName.split(":", 2);
-            pluginName = parts[0].toLowerCase();
-            commandName = parts[1].toLowerCase();
+            if (parts.length > 1) {
+                pluginName = parts[0].toLowerCase();
+                commandName = parts[1].toLowerCase();
+                command = getServer().getPluginCommand(commandName);
+                if (command != null && !command.getPlugin().getName().equalsIgnoreCase(pluginName)) {
+                    command = null;
+                }
+            }
         } else if (command != null) {
             pluginName = command.getPlugin().getName().toLowerCase();
             commandName = command.getName().toLowerCase();
         } else {
             commandName = commandName.toLowerCase();
-        }
-        if (command == null) {
-            command = getServer().getPluginCommand(commandName);
         }
         commandName = commandName.replace("/", "");
 
