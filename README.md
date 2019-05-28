@@ -9,7 +9,8 @@ commands:
   examplecommand: "command.permission.string"
   
 # Groups of commands that all share a similar permission syntax e.g. Essentials
-# Use %command% in the permission to assign
+# Use %command% in the permission to replace command name in permission string
+# and %plugin% to replace the plugin name. (Both are lowercased)
 groups:
   groupname:
     permission: "pluginname.command.%command%"
@@ -17,11 +18,12 @@ groups:
     commands:
     - command
     - anothercommand
-  essentials:
-    permission: "essentials.%command%"
+  basicplugins:
+    permission: "%plugin%.%command%"
     # Match by plugin name
     plugins:
     - Essentials
+    - WorldEdit
 ```
 
 ## Downloads
