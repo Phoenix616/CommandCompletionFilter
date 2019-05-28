@@ -1,0 +1,17 @@
+commands:
+  examplecommand: "command.permission.string"
+  
+# Groups of commands that all share a similar permission syntax e.g. Essentials
+# Use %command% in the permission to assign
+groups:
+  groupname:
+    permission: "pluginname.command.%command%"
+    # Match by command name
+    commands:
+    - command
+    - anothercommand
+  essentials:
+    permission: "essentials.command.%command%"
+    # Match by plugin name
+    plugins:
+    - Essentials

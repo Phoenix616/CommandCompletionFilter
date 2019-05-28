@@ -1,0 +1,18 @@
+name: CommandCompletionFilter
+version: '${minecraft.plugin.version}'
+main: de.themoep.commandcompletionfilter.CommandCompletionFilter
+api-version: 1.13
+authors: [Phoenix616]
+description: '${project.description}'
+commands:
+  commandcompletionfilter:
+    aliases: [ccf]
+    permission: commandcompletionfilter.command
+    usage: /<command> reload
+permissions:
+  commandcompletionfilter.command:
+    default: op
+    description: Gives access to use the plugin command
+  commandcompletionfilter.command.reload:
+    default: op
+    description: Gives access to reload the plugin
